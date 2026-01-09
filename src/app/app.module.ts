@@ -1,18 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Ex1ItemListComponent } from './features/ex1-item-list/ex1-item-list.component';
+import { ItemComponent } from './features/ex1-item-list/components/item/item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+import { Ex2ReactiveFormComponent } from './features/ex2-reactive-form/ex2-reactive-form/ex2-reactive-form.component';
+import { Ex3RoutingComponent } from './features/ex3-routing/ex3-routing/ex3-routing.component';
+import { LoadingComponent } from './shared/loading/loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Ex1ItemListComponent,
+    ItemComponent,
+    HomeComponent,
+    Ex2ReactiveFormComponent,
+    Ex3RoutingComponent,
+    LoadingComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatListModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
