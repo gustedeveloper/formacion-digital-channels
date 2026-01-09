@@ -1,0 +1,35 @@
+<section class="page-container">
+  <h2 class="list-title"><span>Ejercicio 1: </span>Listado y estado de UI</h2>
+  <div class="controls">
+    <button mat-raised-button color="primary" (click)="loadItems('success')">
+      Cargar datos
+    </button>
+    <button mat-raised-button color="secondary" (click)="loadItems('empty')">
+      Cargar sin datos
+    </button>
+    <button mat-raised-button color="warn" (click)="loadItems('error')">
+      Simular error
+    </button>
+  </div>
+
+  <div class="state-container" [ngSwitch]="state$()">
+    <div *ngSwitchCase="'loading'">
+      <app-loading></app-loading>
+    </div>
+
+    <div *ngSwitchCase="'success'">
+      <mat-list *ngFor="let item of items$()"
+        ><app-item [item]="item"></app-item
+      ></mat-list>
+    </div>
+    <div *ngSwitchCase="'empty'" class="empty-container">
+      <p>Lo sentimos. No se encontraron elementos que mostrar.</p>
+    </div>
+    <div *ngSwitchCase="'error'" class="error-container">
+      <p>Ha ocurrido un error.</p>
+      <button mat-raised-button color="primary" (click)="loadItems('success')">
+        Reintentar
+      </button>
+    </div>
+  </div>
+</section>

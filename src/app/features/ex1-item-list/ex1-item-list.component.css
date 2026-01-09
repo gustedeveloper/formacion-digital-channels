@@ -1,0 +1,27 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  flex: 1;
+}
+
+.list-title > span {
+  color: red;
+}
+
+.controls > button {
+  margin: 10px;
+}
+
+.empty-container,
+.error-container {
+  margin-top: 50px;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
