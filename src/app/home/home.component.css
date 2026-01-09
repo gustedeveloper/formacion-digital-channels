@@ -1,0 +1,32 @@
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.link,
+.link > span {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  padding: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.link > span {
+  font-weight: 500;
+  color: red;
+}
+
+.link:hover,
+.link > span:hover {
+  opacity: 0.7;
+}
