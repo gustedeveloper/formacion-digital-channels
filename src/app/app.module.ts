@@ -14,6 +14,9 @@ import { Ex3RoutingComponent } from './features/ex3-routing/ex3-routing/ex3-rout
 import { LoadingComponent } from './shared/loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HeaderComponent } from './layout/header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormInputComponent } from './shared/form-input/form-input.component';
+import { FormSelectComponent } from './shared/form-select/form-select.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { HeaderComponent } from './layout/header/header.component';
     Ex3RoutingComponent,
     LoadingComponent,
     HeaderComponent,
+    FormInputComponent,
+    FormSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { HeaderComponent } from './layout/header/header.component';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
