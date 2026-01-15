@@ -17,6 +17,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormInputComponent } from './shared/form-input/form-input.component';
 import { FormSelectComponent } from './shared/form-select/form-select.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { FormSelectComponent } from './shared/form-select/form-select.component'
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
     ReactiveFormsModule,
   ],
   providers: [],

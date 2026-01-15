@@ -1,21 +1,20 @@
 <div class="form-group">
-  <label>{{ label }}</label>
+  <mat-form-field class="input">
+    <mat-label>{{ label }}</mat-label>
 
-  <input
-    [type]="type"
-    [formControl]="control"
-    class="form-control"
-    [placeholder]="placeholder"
-  />
-
-  <div class="error" *ngIf="control.touched && control.invalid">
-    <small *ngIf="control.errors?.['required']">
-      Este campo es obligatorio
-    </small>
-
-    <small *ngIf="control.errors?.['minlength']">
+    <input
+      [type]="type"
+      [formControl]="control"
+      [placeholder]="placeholder"
+      matInput
+      placeholder="placeholder"
+    />
+    <mat-error class="error" *ngIf="control.errors?.['required']"
+      >Este campo es obligatorio</mat-error
+    >
+    <mat-error class="error" *ngIf="control.errors?.['minlength']">
       El campo debe contener al menos
       {{ control.errors?.['minlength'].requiredLength }} caracteres
-    </small>
-  </div>
+    </mat-error>
+  </mat-form-field>
 </div>
