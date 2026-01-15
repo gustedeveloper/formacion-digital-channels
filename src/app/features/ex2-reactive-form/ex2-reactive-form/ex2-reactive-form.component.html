@@ -1,0 +1,37 @@
+<form [formGroup]="profileForm" (ngSubmit)="submit()">
+  <app-form-input
+    label="Nombre"
+    placeholder="Tu nombre..."
+    type="text"
+    [control]="profileForm.controls.firstName"
+  ></app-form-input>
+
+  <app-form-input
+    label="Apellidos"
+    placeholder="Tus apellidos..."
+    type="text"
+    [control]="profileForm.controls.lastName"
+  ></app-form-input>
+
+  <app-form-input
+    label="Usuario"
+    placeholder="Tu usuario..."
+    type="text"
+    [control]="profileForm.controls.username"
+  ></app-form-input>
+
+  <app-form-input
+    label="Contraseña"
+    placeholder="Tu contraseña..."
+    type="password"
+    [control]="profileForm.controls.password"
+  ></app-form-input>
+
+  <app-form-select
+    label="Rol"
+    [control]="profileForm.controls.role"
+    [options]="roles"
+  ></app-form-select>
+
+  <button type="submit" [disabled]="profileForm.invalid">Enviar</button>
+</form>
