@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label>{{ label }}</label>
+
+  <input
+    [type]="type"
+    [formControl]="control"
+    class="form-control"
+    [placeholder]="placeholder"
+  />
+
+  <div class="error" *ngIf="control.touched && control.invalid">
+    <small *ngIf="control.errors?.['required']">
+      Este campo es obligatorio
+    </small>
+
+    <small *ngIf="control.errors?.['minlength']">
+      El campo debe contener al menos
+      {{ control.errors?.['minlength'].requiredLength }} caracteres
+    </small>
+  </div>
+</div>
