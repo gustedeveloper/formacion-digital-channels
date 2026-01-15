@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { finalize } from 'rxjs';
 import { Role } from 'src/app/core/interfaces/roles.model';
+import { FormSubmitService } from 'src/app/core/services/form-submit.service';
 
 @Component({
   selector: 'app-ex2-reactive-form',
@@ -13,7 +11,8 @@ import { Role } from 'src/app/core/interfaces/roles.model';
   styleUrls: ['./ex2-reactive-form.component.css'],
 })
 export class Ex2ReactiveFormComponent {
-  constructor(private fb: FormBuilder) {}
+  submitting = false;
+  successMessage: string | null = null;
 
   profileForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.minLength(2)]],
@@ -23,6 +22,12 @@ export class Ex2ReactiveFormComponent {
     role: ['', [Validators.required]],
   });
 
+  constructor(
+    private fb: FormBuilder,
+    private formSubmitService: FormSubmitService,
+    private snackBar: MatSnackBar
+  ) {}
+
   roles: Role[] = [
     { label: 'Admin', value: 'admin' },
     { label: 'User', value: 'user' },
@@ -30,9 +35,23 @@ export class Ex2ReactiveFormComponent {
   ];
 
   submit() {
-    if (this.profileForm.valid) {
-      console.log(this.profileForm.value);
-      this.profileForm.reset();
+    if (this.profileForm.invalid) {
+      this.profileForm.markAllAsTouched();
+      return;
     }
+
+    this.submitting = true;
+    this.formSubmitService
+      .submit(this.profileForm.value)
+      .pipe(finalize(() => (this.submitting = false)))
+      .subscribe({
+        next: () => {
+          this.snackBar.open('Formulario enviado correctamente ✅', 'Cerrar', {
+            duration: 1500,
+          });
+
+          this.profileForm.reset();
+        },
+      });
   }
 }
