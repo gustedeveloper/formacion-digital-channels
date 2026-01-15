@@ -10,7 +10,7 @@ import { ItemComponent } from './features/ex1-item-list/components/item/item.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { Ex2ReactiveFormComponent } from './features/ex2-reactive-form/ex2-reactive-form.component';
-import { Ex3RoutingComponent } from './features/ex3-routing/ex3-routing/ex3-routing.component';
+import { Ex3RoutingComponent } from './features/ex3-routing/ex3-routing.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HeaderComponent } from './layout/header/header.component';
@@ -20,6 +20,9 @@ import { FormSelectComponent } from './shared/form-select/form-select.component'
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoginComponent } from './features/ex3-routing/components/login/login.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HeaderComponent,
     FormInputComponent,
     FormSelectComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatIconModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
