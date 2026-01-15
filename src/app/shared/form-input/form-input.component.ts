@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { FormErrorService } from 'src/app/core/services/form-error.service';
 
 @Component({
   selector: 'app-form-input',
@@ -11,4 +12,6 @@ export class FormInputComponent {
   @Input() type: 'text' | 'password' = 'text';
   @Input() control!: FormControl;
   @Input() placeholder = '';
+
+  constructor(public formErrorService: FormErrorService) {}
 }

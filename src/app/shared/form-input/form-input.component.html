@@ -9,12 +9,10 @@
       matInput
       placeholder="placeholder"
     />
-    <mat-error class="error" *ngIf="control.errors?.['required']"
-      >Este campo es obligatorio</mat-error
+    <mat-error
+      class="error"
+      *ngIf="formErrorService.getErrorMessage(control)"
+      >{{ formErrorService.getErrorMessage(control) }}</mat-error
     >
-    <mat-error class="error" *ngIf="control.errors?.['minlength']">
-      El campo debe contener al menos
-      {{ control.errors?.['minlength'].requiredLength }} caracteres
-    </mat-error>
   </mat-form-field>
 </div>
